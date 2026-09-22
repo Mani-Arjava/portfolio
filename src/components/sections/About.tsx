@@ -3,11 +3,11 @@
 import { useInView } from "react-intersection-observer";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
-import Image from "next/image";
 import { aboutData } from "@/data/about";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import TypewriterText from "@/components/ui/TypewriterText";
+import LaptopAnimation from "@/components/ui/LaptopAnimation";
 import type { Stat } from "@/types";
 
 function AnimatedStat({ stat, inView }: { stat: Stat; inView: boolean }) {
@@ -44,31 +44,24 @@ export default function About() {
 
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <ScrollReveal direction="left">
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative aspect-square max-w-md mx-auto overflow-hidden rounded-2xl border border-white/10 bg-white/5 lg:mx-0"
-            >
-              <Image
-                src={aboutData.image}
-                alt={aboutData.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </motion.div>
+            <LaptopAnimation />
           </ScrollReveal>
 
           <ScrollReveal direction="right" delay={0.2}>
-            <div className="space-y-4">
+            <div className="space-y-6">
+              <div className="text-xs font-mono text-cyan-500/60 mb-4">// bio.txt</div>
               {aboutData.description.map((p, i) => (
-                <TypewriterText
-                  key={i}
-                  text={p}
-                  delay={i * 800}
-                  speed={20}
-                  className="leading-relaxed text-gray-400"
-                />
+                <div key={i}>
+                  <TypewriterText
+                    text={p}
+                    delay={i * 800}
+                    speed={20}
+                    className="leading-relaxed text-gray-400"
+                  />
+                  {i < aboutData.description.length - 1 && (
+                    <div className="h-px bg-gradient-to-r from-cyan-500/20 via-transparent to-transparent mt-4" />
+                  )}
+                </div>
               ))}
             </div>
 

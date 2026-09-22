@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { socialLinks } from "@/data/socialLinks";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ContactForm from "@/components/ui/ContactForm";
@@ -8,11 +9,22 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="py-24 px-6 relative">
       <div className="mx-auto max-w-4xl">
         <SectionHeading title="Get In Touch" subtitle="Contact me" />
 
-        <div className="grid gap-12 lg:grid-cols-2 rounded-2xl border border-white/10 bg-white/[0.02] p-8 lg:p-12">
+        {/* Background watermark */}
+        <motion.div
+          className="absolute top-0 left-0 text-[300px] font-mono font-bold text-cyan-400/[0.02] select-none pointer-events-none"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          &lt;/&gt;
+        </motion.div>
+
+        <div className="relative z-10 grid gap-12 lg:grid-cols-2 rounded-2xl border border-white/10 bg-white/[0.02] p-8 lg:p-12 hover:border-cyan-500/20 transition-all backdrop-blur-sm">
           <ScrollReveal direction="left">
             <div>
               <h3 className="mb-4 text-xl font-semibold text-white">
@@ -33,6 +45,18 @@ export default function Contact() {
                   pitchumaniece@gmail.com
                 </a>
               </div>
+
+              {/* Decorative terminal snippet */}
+              <motion.div
+                className="mb-8 rounded-lg border border-cyan-400/20 bg-slate-950/60 p-4 font-mono text-xs text-cyan-400 overflow-x-auto"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
+                <div>$ <span className="text-cyan-300">curl -X POST</span> /connect</div>
+                <div className="text-gray-500 mt-1">{"→ opening connection..."}</div>
+              </motion.div>
 
               {/* Social Links */}
               <div>

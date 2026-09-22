@@ -20,13 +20,13 @@ export default function Projects() {
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           staggerDelay={0.1}
         >
-          {projects.map((project) => (
+          {projects.map((project, idx) => (
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
               className="cursor-pointer"
             >
-              <ProjectCard project={project} />
+              <ProjectCard project={project} index={idx} />
             </div>
           ))}
         </StaggerContainer>

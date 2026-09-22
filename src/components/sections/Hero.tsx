@@ -8,6 +8,7 @@ import AnimatedText from "@/components/ui/AnimatedText";
 import GradientBlob from "@/components/ui/GradientBlob";
 import TerminalWindow from "@/components/ui/TerminalWindow";
 
+
 const taglines = [
   "Backend Engineer",
   "System Design Expert",
@@ -35,6 +36,35 @@ export default function Hero() {
       <GradientBlob className="right-1/4 bottom-1/4 h-80 w-80 bg-cyan-600 opacity-12" />
 
       <div className="relative z-10 grid grid-cols-1 gap-12 max-w-6xl lg:grid-cols-2 lg:gap-16">
+        {/* Bracket decorations */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="hidden absolute text-7xl text-cyan-400/20 font-mono lg:block"
+          style={{ top: "10%", left: "-40px" }}
+        >
+          &lt;/&gt;
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1 }}
+          className="hidden absolute text-7xl text-cyan-400/15 font-mono lg:block"
+          style={{ bottom: "15%", left: "20px" }}
+        >
+          {"{  }"}
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="hidden absolute text-7xl text-cyan-400/15 font-mono lg:block"
+          style={{ top: "30%", left: "50%" }}
+        >
+          [ ]
+        </motion.div>
+
         {/* Left column */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -47,13 +77,14 @@ export default function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-6"
+            className="mb-6 flex items-center gap-2"
           >
             <motion.span
               animate={{ scale: [1, 1.3, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="h-3 w-3 rounded-full bg-green-500 inline-block"
             />
+            <span className="text-sm font-medium text-green-400">Available for opportunities</span>
           </motion.div>
 
           {/* Name */}
@@ -130,14 +161,25 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Right column - Terminal */}
+        {/* Right column - Terminal with glow and floating badges */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex items-center justify-center"
+          className="relative flex items-center justify-center"
         >
-          <TerminalWindow />
+          {/* Terminal glow background */}
+          <motion.div
+            className="absolute inset-0 bg-cyan-500/10 rounded-2xl blur-3xl"
+            animate={{ opacity: [0.5, 0.8, 0.5] }}
+            transition={{ duration: 4, repeat: Infinity }}
+          />
+
+          {/* Terminal */}
+          <div className="relative z-10">
+            <TerminalWindow />
+          </div>
+
         </motion.div>
       </div>
 

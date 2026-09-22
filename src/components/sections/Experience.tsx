@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Terminal, GraduationCap } from "lucide-react";
 import { experiences } from "@/data/experience";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
@@ -99,15 +100,35 @@ export default function Experience() {
                   >
                     {/* Content */}
                     <div className="relative z-10">
-                      {/* Date badge - elegant style */}
+                      {/* Date badge and role icon */}
                       <motion.div
-                        className="mb-3 inline-block text-xs font-mono text-cyan-400"
+                        className="mb-3 flex items-center gap-2"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.1 }}
                       >
-                        ◆ {exp.startDate} – {exp.endDate}
+                        <span className="text-xs font-mono text-cyan-400">
+                          ◆ {exp.startDate} – {exp.endDate}
+                        </span>
+                        {idx === 0 ? (
+                          <Terminal className="w-4 h-4 text-cyan-400" />
+                        ) : (
+                          <GraduationCap className="w-4 h-4 text-cyan-400" />
+                        )}
                       </motion.div>
+
+                      {/* Current badge for first role */}
+                      {idx === 0 && (
+                        <motion.div
+                          className="mb-3 inline-block text-xs px-2.5 py-1 rounded-full border border-green-500/50 bg-green-500/10 text-green-400 font-medium"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.12, duration: 0.3 }}
+                        >
+                          Currently working
+                        </motion.div>
+                      )}
 
                       {/* Role - prominent title */}
                       <motion.h3

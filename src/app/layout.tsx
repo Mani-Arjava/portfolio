@@ -3,6 +3,7 @@ import { inter } from "@/lib/fonts";
 import { siteConfig } from "@/data/siteConfig";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import FloatingParticles from "@/components/ui/FloatingParticles";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.variable} antialiased`}>
+        <FloatingParticles />
         <Navbar />
         <main>{children}</main>
         <Footer />

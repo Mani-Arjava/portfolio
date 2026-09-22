@@ -42,8 +42,99 @@ export default function Mentoring() {
           {/* Main Card */}
           <motion.div
             variants={itemVariants}
-            className="rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 hover:border-cyan-500/30 transition-all duration-300"
+            className="rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 hover:border-cyan-500/30 transition-all duration-300 relative overflow-hidden group"
           >
+            {/* AI Network visualization */}
+            <motion.svg
+              className="absolute top-4 right-4 w-64 h-64 text-cyan-400 opacity-20 group-hover:opacity-40 transition-opacity duration-300"
+              viewBox="0 0 200 200"
+              fill="none"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 0.25 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              {/* Central mentor node */}
+              <motion.circle
+                cx="100"
+                cy="100"
+                r="6"
+                fill="currentColor"
+                animate={{ r: [6, 8, 6] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+
+              {/* Student nodes */}
+              {[
+                { x: 50, y: 50, label: "Student 1" },
+                { x: 150, y: 50, label: "Student 2" },
+                { x: 50, y: 150, label: "Student 3" },
+                { x: 150, y: 150, label: "Student 4" },
+                { x: 100, y: 30, label: "Student 5" },
+                { x: 100, y: 170, label: "Student 6" },
+              ].map((node, idx) => (
+                <g key={`student-${idx}`}>
+                  {/* Connection line */}
+                  <motion.line
+                    x1="100"
+                    y1="100"
+                    x2={node.x}
+                    y2={node.y}
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    opacity="0.5"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 + idx * 0.1, duration: 0.8 }}
+                  />
+
+                  {/* Student node */}
+                  <motion.circle
+                    cx={node.x}
+                    cy={node.y}
+                    r="3"
+                    fill="currentColor"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6 + idx * 0.1, duration: 0.4 }}
+                    animate={{ opacity: [0.6, 1, 0.6] }}
+                  />
+                </g>
+              ))}
+
+              {/* Data flow animation */}
+              {[0, 1, 2].map((flow) => (
+                <motion.circle
+                  key={`flow-${flow}`}
+                  r="2"
+                  fill="currentColor"
+                  opacity="0.8"
+                  animate={{
+                    cx: [100, 150, 100],
+                    cy: [100, 50, 100],
+                    opacity: [0, 1, 0],
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    delay: flow * 0.8,
+                  }}
+                />
+              ))}
+            </motion.svg>
+
+            {/* Large background number */}
+            <motion.div
+              className="absolute top-0 left-0 text-[180px] font-mono font-bold text-cyan-400/5 select-none pointer-events-none"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              50+
+            </motion.div>
             {/* Header */}
             <div className="mb-8">
               <motion.div
@@ -66,49 +157,106 @@ export default function Mentoring() {
               </motion.div>
             </div>
 
-            {/* Key Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 pb-8 border-b border-white/10">
+            {/* Key Stats with animated arcs */}
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 pb-8 border-b border-white/10">
               <motion.div
                 variants={itemVariants}
-                className="rounded-lg bg-white/5 p-4"
+                className="rounded-lg bg-white/5 p-4 relative group/stat"
               >
-                <div className="flex items-center gap-3 mb-2">
+                {/* Animated arc background */}
+                <motion.svg
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  viewBox="0 0 100 100"
+                >
+                  <motion.circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    fill="none"
+                    stroke="rgba(34, 211, 238, 0.2)"
+                    strokeWidth="2"
+                    strokeDasharray="141"
+                    initial={{ strokeDashoffset: 141 }}
+                    whileInView={{ strokeDashoffset: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, delay: 0.3 }}
+                  />
+                </motion.svg>
+                <div className="flex items-center gap-3 mb-2 relative z-10">
                   <Users className="w-5 h-5 text-cyan-400" />
                   <p className="text-sm text-gray-400 uppercase tracking-wider">
                     Students Mentored
                   </p>
                 </div>
-                <p className="text-3xl font-bold text-white">
+                <p className="text-3xl font-bold text-white relative z-10">
                   {mentoringData.studentsCount}+
                 </p>
               </motion.div>
 
               <motion.div
                 variants={itemVariants}
-                className="rounded-lg bg-white/5 p-4"
+                className="rounded-lg bg-white/5 p-4 relative group/stat"
               >
-                <div className="flex items-center gap-3 mb-2">
+                {/* Animated arc background */}
+                <motion.svg
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  viewBox="0 0 100 100"
+                >
+                  <motion.circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    fill="none"
+                    stroke="rgba(168, 85, 247, 0.2)"
+                    strokeWidth="2"
+                    strokeDasharray="141"
+                    initial={{ strokeDashoffset: 141 }}
+                    whileInView={{ strokeDashoffset: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, delay: 0.4 }}
+                  />
+                </motion.svg>
+                <div className="flex items-center gap-3 mb-2 relative z-10">
                   <BookOpen className="w-5 h-5 text-purple-400" />
                   <p className="text-sm text-gray-400 uppercase tracking-wider">
                     Technologies
                   </p>
                 </div>
-                <p className="text-3xl font-bold text-white">
+                <p className="text-3xl font-bold text-white relative z-10">
                   {mentoringData.technologies.length}
                 </p>
               </motion.div>
 
               <motion.div
                 variants={itemVariants}
-                className="rounded-lg bg-white/5 p-4"
+                className="rounded-lg bg-white/5 p-4 relative group/stat"
               >
-                <div className="flex items-center gap-3 mb-2">
+                {/* Animated arc background */}
+                <motion.svg
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  viewBox="0 0 100 100"
+                >
+                  <motion.circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    fill="none"
+                    stroke="rgba(34, 197, 94, 0.2)"
+                    strokeWidth="2"
+                    strokeDasharray="141"
+                    initial={{ strokeDashoffset: 141 }}
+                    whileInView={{ strokeDashoffset: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.5, delay: 0.5 }}
+                  />
+                </motion.svg>
+                <div className="flex items-center gap-3 mb-2 relative z-10">
                   <Award className="w-5 h-5 text-green-400" />
                   <p className="text-sm text-gray-400 uppercase tracking-wider">
                     Achievements
                   </p>
                 </div>
-                <p className="text-3xl font-bold text-white">
+                <p className="text-3xl font-bold text-white relative z-10">
                   {mentoringData.achievements.length}
                 </p>
               </motion.div>
