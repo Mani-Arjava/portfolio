@@ -24,9 +24,6 @@ export default function Navbar() {
           "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
           isAtTop ? "bg-transparent" : "bg-[#0a0a0a]/80 backdrop-blur-lg border-b border-white/5"
         )}
-        initial={{ y: 0 }}
-        animate={{ y: scrollDirection === "down" && !mobileOpen ? -100 : 0 }}
-        transition={{ duration: 0.3 }}
       >
         <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <motion.a
