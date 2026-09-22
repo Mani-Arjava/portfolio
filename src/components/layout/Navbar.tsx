@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { navLinks } from "@/data/navigation";
@@ -28,13 +29,35 @@ export default function Navbar() {
         transition={{ duration: 0.3 }}
       >
         <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <a
+          <motion.a
             href="#"
-            className="text-lg font-bold text-white transition-colors hover:text-cyan-400"
+            className="flex items-center gap-3 transition-all hover:opacity-80"
+            whileHover={{ scale: 1.02 }}
           >
-            {siteConfig.shortName}
-            <span className="text-cyan-400">.</span>
-          </a>
+            {/* Profile Avatar */}
+            <div className="relative h-10 w-10 overflow-hidden rounded-full border-2 border-cyan-400/30 hover:border-cyan-400/60 transition-colors">
+              <Image
+                src="/images/profile.png"
+                alt={siteConfig.name}
+                fill
+                className="object-cover"
+              />
+            </div>
+            {/* Full Name */}
+            <span className="hidden sm:flex flex-col">
+              <span className="text-sm font-bold text-white leading-tight">
+                {siteConfig.name}
+              </span>
+              <span className="text-xs text-cyan-400/70">
+                Senior Software Engineer
+              </span>
+            </span>
+            {/* Mobile - Short Name */}
+            <span className="sm:hidden text-lg font-bold text-white transition-colors hover:text-cyan-400">
+              {siteConfig.shortName}
+              <span className="text-cyan-400">.</span>
+            </span>
+          </motion.a>
 
           {/* Desktop links */}
           <ul className="hidden items-center gap-8 md:flex">
