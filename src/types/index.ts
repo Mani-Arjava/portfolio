@@ -51,6 +51,8 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  overview?: string;
+  keyFeatures?: string[];
   image: string;
   technologies: string[];
   githubUrl?: string;
@@ -65,6 +67,16 @@ export interface Testimonial {
   role: string;
   company: string;
   avatar: string;
+}
+
+export interface Product {
+  id: string;
+  image: string;
+  alt: string;
+  name: string;
+  subtitle: string;
+  features: string[];
+  imageLeft: boolean;
 }
 
 export interface SocialLink {
