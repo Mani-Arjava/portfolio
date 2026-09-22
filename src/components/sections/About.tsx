@@ -7,6 +7,7 @@ import Image from "next/image";
 import { aboutData } from "@/data/about";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScrollReveal from "@/components/animations/ScrollReveal";
+import TypewriterText from "@/components/ui/TypewriterText";
 import type { Stat } from "@/types";
 
 function AnimatedStat({ stat, inView }: { stat: Stat; inView: boolean }) {
@@ -61,9 +62,13 @@ export default function About() {
           <ScrollReveal direction="right" delay={0.2}>
             <div className="space-y-4">
               {aboutData.description.map((p, i) => (
-                <p key={i} className="leading-relaxed text-gray-400">
-                  {p}
-                </p>
+                <TypewriterText
+                  key={i}
+                  text={p}
+                  delay={i * 800}
+                  speed={20}
+                  className="leading-relaxed text-gray-400"
+                />
               ))}
             </div>
 
