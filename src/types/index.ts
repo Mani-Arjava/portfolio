@@ -69,6 +69,18 @@ export interface Testimonial {
   avatar: string;
 }
 
+export interface Mentoring {
+  id: string;
+  organization: string;
+  role: string;
+  startDate: string;
+  endDate: string;
+  description: string[];
+  studentsCount: number;
+  technologies: string[];
+  achievements: string[];
+}
+
 export interface Product {
   id: string;
   image: string;
