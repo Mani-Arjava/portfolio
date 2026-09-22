@@ -1,0 +1,25 @@
+name = "portfolio"
+type = "javascript"
+main = "src/index.ts"
+
+# Cloudflare Pages configuration
+pages_build_output_dir = "out"
+
+# Environment
+env = "production"
+
+# Build settings
+[env.production]
+build = { command = "npm run build" }
+build_watch_paths = ["src/**/*.tsx", "public/**/*"]
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Routes
+routes = [
+  { pattern = "https://mani-rr.pages.dev", zone_name = "pages.dev" }
+]
+
+# Functions configuration (if needed for serverless)
+[env.production.routes]
+pattern = "/api/*"
