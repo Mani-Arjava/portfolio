@@ -6,6 +6,6 @@ export const siteConfig: SiteConfig = {
   title: "Pitchaimani Rajaram — Software Engineer",
   description:
     "Backend and full-stack engineer specializing in system design, scalable APIs, Flutter, and cloud-powered applications.",
-  url: "https://alexmorgan.dev",
+  url: "https://mani-rr.pages.dev",
   ogImage: "/images/og.png",
 };

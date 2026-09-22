@@ -42,7 +42,7 @@ export default function Mentoring() {
           {/* Main Card */}
           <motion.div
             variants={itemVariants}
-            className="rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 hover:border-blue-500/30 transition-all duration-300"
+            className="rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 hover:border-cyan-500/30 transition-all duration-300"
           >
             {/* Header */}
             <div className="mb-8">
@@ -54,7 +54,7 @@ export default function Mentoring() {
                   <h3 className="text-2xl font-bold text-white mb-2">
                     {mentoringData.role}
                   </h3>
-                  <p className="text-blue-400 font-semibold">
+                  <p className="text-cyan-400 font-semibold">
                     {mentoringData.organization}
                   </p>
                 </div>
@@ -73,7 +73,7 @@ export default function Mentoring() {
                 className="rounded-lg bg-white/5 p-4"
               >
                 <div className="flex items-center gap-3 mb-2">
-                  <Users className="w-5 h-5 text-blue-400" />
+                  <Users className="w-5 h-5 text-cyan-400" />
                   <p className="text-sm text-gray-400 uppercase tracking-wider">
                     Students Mentored
                   </p>
@@ -159,7 +159,7 @@ export default function Mentoring() {
                     variants={itemVariants}
                     className="flex items-start gap-3 text-gray-300"
                   >
-                    <span className="text-blue-400 mt-1 flex-shrink-0">✓</span>
+                    <span className="text-cyan-400 mt-1 flex-shrink-0">✓</span>
                     <span>{achievement}</span>
                   </motion.li>
                 ))}

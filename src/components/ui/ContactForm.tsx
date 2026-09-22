@@ -4,11 +4,19 @@ import { useState, type FormEvent } from "react";
 import Button from "@/components/ui/Button";
 
 export default function ContactForm() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const mailtoLink = `mailto:pitchumaniece@gmail.com?subject=Message from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+    window.location.href = mailtoLink;
     setSubmitted(true);
+  }
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   }
 
   if (submitted) {
@@ -35,7 +43,9 @@ export default function ContactForm() {
           id="name"
           name="name"
           required
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-500 outline-none transition-colors focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-500 outline-none transition-colors focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
+          onChange={handleChange}
+          value={formData.name}
           placeholder="Your name"
         />
       </div>
@@ -48,7 +58,9 @@ export default function ContactForm() {
           id="email"
           name="email"
           required
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-500 outline-none transition-colors focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-500 outline-none transition-colors focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
+          onChange={handleChange}
+          value={formData.email}
           placeholder="your@email.com"
         />
       </div>
@@ -61,7 +73,9 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
-          className="w-full resize-none rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-500 outline-none transition-colors focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+          className="w-full resize-none rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-500 outline-none transition-colors focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
+          onChange={handleChange}
+          value={formData.message}
           placeholder="What would you like to discuss?"
         />
       </div>

@@ -9,23 +9,40 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 export default function Contact() {
   return (
     <section id="contact" className="py-24 px-6">
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-4xl">
         <SectionHeading title="Get In Touch" subtitle="Contact me" />
 
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-12 lg:grid-cols-2 rounded-2xl border border-white/10 bg-white/[0.02] p-8 lg:p-12">
           <ScrollReveal direction="left">
-            <h3 className="mb-4 text-xl font-semibold text-white">
-              Let&apos;s work together
-            </h3>
-            <p className="mb-6 leading-relaxed text-gray-400">
-              I&apos;m always open to discussing new projects, creative ideas,
-              or opportunities to be part of your vision. Drop me a message and
-              I&apos;ll get back to you as soon as possible.
-            </p>
-            <div className="flex gap-3">
-              {socialLinks.map((link) => (
-                <SocialLinkComponent key={link.name} {...link} />
-              ))}
+            <div>
+              <h3 className="mb-4 text-xl font-semibold text-white">
+                Let&apos;s work together
+              </h3>
+              <p className="mb-8 leading-relaxed text-gray-400">
+                I&apos;m always open to discussing new projects, creative ideas,
+                or opportunities to be part of your vision. Feel free to reach out.
+              </p>
+
+              {/* Email */}
+              <div className="mb-8">
+                <p className="mb-2 text-sm text-gray-500 uppercase tracking-wider">Email</p>
+                <a
+                  href="mailto:pitchumaniece@gmail.com"
+                  className="text-lg font-semibold text-cyan-400 hover:text-cyan-300 transition-colors break-all"
+                >
+                  pitchumaniece@gmail.com
+                </a>
+              </div>
+
+              {/* Social Links */}
+              <div>
+                <p className="mb-4 text-sm text-gray-500 uppercase tracking-wider">Follow</p>
+                <div className="flex gap-4">
+                  {socialLinks.map((link) => (
+                    <SocialLinkComponent key={link.name} {...link} />
+                  ))}
+                </div>
+              </div>
             </div>
           </ScrollReveal>
 

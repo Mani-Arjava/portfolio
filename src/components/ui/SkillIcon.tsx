@@ -70,9 +70,9 @@ export default function SkillIcon({ skill }: SkillIconProps) {
   const Icon = iconMap[skill.icon];
 
   return (
-    <div className="group flex flex-col items-center gap-2 rounded-lg border border-white/5 bg-white/[0.03] p-4 transition-all duration-300 hover:border-blue-500/30 hover:bg-blue-500/5">
+    <div className="group flex flex-col items-center gap-2 rounded-lg border border-white/5 bg-white/[0.03] p-5 transition-all duration-300 hover:border-cyan-500/30 hover:bg-cyan-500/5 hover:shadow-[0_0_12px_rgba(34,211,238,0.15)]">
       {Icon && (
-        <Icon className="h-8 w-8 text-gray-400 transition-colors group-hover:text-blue-400" />
+        <Icon className="h-8 w-8 text-gray-400 transition-colors group-hover:text-cyan-400" />
       )}
       <span className="text-xs font-medium text-gray-400 group-hover:text-gray-300 transition-colors">
         {skill.name}

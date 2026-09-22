@@ -43,7 +43,7 @@ export default function ProductShowcase() {
                     transition={{ duration: 0.7, delay: 0.1 }}
                     className="relative w-full max-w-sm"
                   >
-                    <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+                    <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-cyan-500/20 to-purple-500/20">
                       <Image
                         src={product.image}
                         alt={product.alt}
@@ -52,7 +52,7 @@ export default function ProductShowcase() {
                         priority={false}
                       />
                     </div>
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 pointer-events-none" />
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10 pointer-events-none" />
                   </motion.div>
                 </div>
 
@@ -69,7 +69,7 @@ export default function ProductShowcase() {
                   <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2">
                     {product.name}
                   </h3>
-                  <p className="text-lg text-blue-400 font-semibold mb-6">
+                  <p className="text-lg text-cyan-400 font-semibold mb-6">
                     {product.subtitle}
                   </p>
 
@@ -77,7 +77,7 @@ export default function ProductShowcase() {
                   <ul className="space-y-3 mb-8">
                     {product.features.map((feature, idx) => (
                       <li key={idx} className="flex gap-3 text-gray-300">
-                        <CheckCircle2 className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="h-5 w-5 text-cyan-500 flex-shrink-0 mt-0.5" />
                         <span className="text-sm sm:text-base leading-relaxed">
                           {feature}
                         </span>

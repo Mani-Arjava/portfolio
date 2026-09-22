@@ -8,6 +8,7 @@ import { siteConfig } from "@/data/siteConfig";
 import useScrollDirection from "@/hooks/useScrollDirection";
 import useActiveSection from "@/hooks/useActiveSection";
 import MobileMenu from "./MobileMenu";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -16,6 +17,7 @@ export default function Navbar() {
 
   return (
     <>
+      <ScrollProgress />
       <motion.header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
@@ -28,10 +30,10 @@ export default function Navbar() {
         <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <a
             href="#"
-            className="text-lg font-bold text-white transition-colors hover:text-blue-400"
+            className="text-lg font-bold text-white transition-colors hover:text-cyan-400"
           >
             {siteConfig.shortName}
-            <span className="text-blue-500">.</span>
+            <span className="text-cyan-400">.</span>
           </a>
 
           {/* Desktop links */}
@@ -41,9 +43,9 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-blue-400",
+                    "text-sm font-medium transition-colors hover:text-cyan-400",
                     activeSection === link.href.slice(1)
-                      ? "text-blue-400"
+                      ? "text-cyan-400"
                       : "text-gray-400"
                   )}
                 >

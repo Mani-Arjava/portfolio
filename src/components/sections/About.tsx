@@ -23,7 +23,7 @@ function AnimatedStat({ stat, inView }: { stat: Stat; inView: boolean }) {
     <div className="text-center">
       <div className="text-3xl font-bold text-white sm:text-4xl">
         <motion.span>{rounded}</motion.span>
-        {stat.suffix && <span className="text-blue-500">{stat.suffix}</span>}
+        {stat.suffix && <span className="text-cyan-500">{stat.suffix}</span>}
       </div>
       <p className="mt-1 text-sm text-gray-400">{stat.label}</p>
     </div>
