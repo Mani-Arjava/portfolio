@@ -4,7 +4,6 @@ import Skills from "@/components/sections/Skills";
 import Experience from "@/components/sections/Experience";
 import Mentoring from "@/components/sections/Mentoring";
 import Projects from "@/components/sections/Projects";
-import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <Experience />
       <Mentoring />
       <Projects />
-      <Testimonials />
       <Contact />
     </>
   );
