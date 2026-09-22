@@ -1,15 +1,6 @@
 {
   "build": {
-    "command": "npm run build",
-    "cwd": "."
+    "command": "npm run build"
   },
-  "env": {
-    "production": {
-      "build": {
-        "command": "npm run build"
-      }
-    }
-  },
-  "pages_build_output_dir": "out",
-  "env_slug": "production"
+  "pages_build_output_dir": "out"
 }
