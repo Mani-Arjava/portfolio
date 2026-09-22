@@ -42,19 +42,18 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="flex flex-col justify-center"
         >
-          {/* Available badge */}
+          {/* Available indicator */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-6 flex items-center gap-2"
+            className="mb-6"
           >
             <motion.span
-              animate={{ scale: [1, 1.2, 1] }}
+              animate={{ scale: [1, 1.3, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="h-3 w-3 rounded-full bg-green-500"
+              className="h-3 w-3 rounded-full bg-green-500 inline-block"
             />
-            <span className="text-sm font-medium text-green-400">Available for opportunities</span>
           </motion.div>
 
           {/* Name */}

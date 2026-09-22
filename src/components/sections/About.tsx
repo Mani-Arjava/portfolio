@@ -20,13 +20,16 @@ function AnimatedStat({ stat, inView }: { stat: Stat; inView: boolean }) {
   }, [inView, count, stat.value]);
 
   return (
-    <div className="text-center">
+    <motion.div
+      className="text-center p-4 rounded-lg border border-white/5 bg-white/[0.02] hover:border-cyan-500/20 transition-all"
+      whileHover={{ scale: 1.05, borderColor: "rgba(34, 211, 238, 0.3)" }}
+    >
       <div className="text-3xl font-bold text-white sm:text-4xl">
         <motion.span>{rounded}</motion.span>
         {stat.suffix && <span className="text-cyan-500">{stat.suffix}</span>}
       </div>
       <p className="mt-1 text-sm text-gray-400">{stat.label}</p>
-    </div>
+    </motion.div>
   );
 }
 
@@ -40,7 +43,11 @@ export default function About() {
 
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <ScrollReveal direction="left">
-            <div className="relative aspect-square max-w-md mx-auto overflow-hidden rounded-2xl border border-white/10 bg-white/5 lg:mx-0">
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="relative aspect-square max-w-md mx-auto overflow-hidden rounded-2xl border border-white/10 bg-white/5 lg:mx-0"
+            >
               <Image
                 src={aboutData.image}
                 alt={aboutData.title}
@@ -48,7 +55,7 @@ export default function About() {
                 className="object-cover"
                 priority
               />
-            </div>
+            </motion.div>
           </ScrollReveal>
 
           <ScrollReveal direction="right" delay={0.2}>

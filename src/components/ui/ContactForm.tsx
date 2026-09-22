@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 
 export default function ContactForm() {
@@ -34,11 +35,16 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0 }}
+        viewport={{ once: true }}
+      >
         <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-300">
           Name
         </label>
-        <input
+        <motion.input
           type="text"
           id="name"
           name="name"
@@ -47,13 +53,20 @@ export default function ContactForm() {
           onChange={handleChange}
           value={formData.name}
           placeholder="Your name"
+          whileFocus={{ scale: 1.01 }}
         />
-      </div>
-      <div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        viewport={{ once: true }}
+      >
         <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-300">
           Email
         </label>
-        <input
+        <motion.input
           type="email"
           id="email"
           name="email"
@@ -62,13 +75,20 @@ export default function ContactForm() {
           onChange={handleChange}
           value={formData.email}
           placeholder="your@email.com"
+          whileFocus={{ scale: 1.01 }}
         />
-      </div>
-      <div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        viewport={{ once: true }}
+      >
         <label htmlFor="message" className="mb-2 block text-sm font-medium text-gray-300">
           Message
         </label>
-        <textarea
+        <motion.textarea
           id="message"
           name="message"
           rows={5}
@@ -77,11 +97,20 @@ export default function ContactForm() {
           onChange={handleChange}
           value={formData.message}
           placeholder="What would you like to discuss?"
+          whileFocus={{ scale: 1.01 }}
         />
-      </div>
-      <Button type="submit" variant="primary" size="lg" className="w-full">
-        Send Message
-      </Button>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        viewport={{ once: true }}
+      >
+        <Button type="submit" variant="primary" size="lg" className="w-full">
+          Send Message
+        </Button>
+      </motion.div>
     </form>
   );
 }
