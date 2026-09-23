@@ -174,11 +174,11 @@ export const projects: Project[] = [
   },
   {
     id: "seeeds-india",
-    title: "SEATS India",
+    title: "SEEEDS India",
     description:
-      "NGO website for SEATS Foundation — providing digital presence for social impact and community engagement initiatives.",
+      "NGO website for SEEEDS Foundation — providing digital presence for social impact and community engagement initiatives.",
     overview:
-      "SEATS India is an NGO organization for which a dedicated website has been developed. The project focuses on providing the organization with a digital presence and a platform to communicate and present its activities and information online.",
+      "SEEEDS India is an NGO organization for which a dedicated website has been developed. The project focuses on providing the organization with a digital presence and a platform to communicate and present its activities and information online.",
     keyFeatures: [
       "Organization information and mission statement",
       "Activities and initiatives showcase",
