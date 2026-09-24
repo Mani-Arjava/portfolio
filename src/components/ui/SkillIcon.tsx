@@ -27,6 +27,7 @@ import {
   SiSupabase,
   SiLooker,
   SiChartdotjs,
+  SiGooglebigquery,
 } from "react-icons/si";
 import { FaAws, FaMicrosoft } from "react-icons/fa";
 import type { Skill } from "@/types";
@@ -59,6 +60,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   SiSupabase,
   SiLooker,
   SiChartdotjs,
+  SiGooglebigquery,
   FaAws,
 };
 

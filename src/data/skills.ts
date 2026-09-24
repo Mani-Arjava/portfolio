@@ -27,6 +27,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "PostgreSQL", icon: "SiPostgresql" },
       { name: "Firestore", icon: "SiFirebase" },
       { name: "MongoDB", icon: "SiMongodb" },
+      { name: "DynamoDB", icon: "FaAws" },
+      { name: "BigQuery", icon: "SiGooglebigquery" },
     ],
   },
   {
