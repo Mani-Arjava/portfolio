@@ -15,18 +15,18 @@ export const skillCategories: SkillCategory[] = [
       { name: "React", icon: "SiReact" },
       { name: "Node.js", icon: "SiNodedotjs" },
       { name: "Kotlin", icon: "SiKotlin" },
+      { name: "HTML", icon: "SiHtml5" },
+      { name: "CSS", icon: "SiCss" },
+      { name: "Bootstrap", icon: "SiBootstrap" },
     ],
   },
   {
-    name: "Databases & Technologies",
+    name: "Databases",
     skills: [
       { name: "MySQL", icon: "SiMysql" },
       { name: "PostgreSQL", icon: "SiPostgresql" },
       { name: "Firestore", icon: "SiFirebase" },
       { name: "MongoDB", icon: "SiMongodb" },
-      { name: "HTML", icon: "SiHtml5" },
-      { name: "CSS", icon: "SiCss" },
-      { name: "Bootstrap", icon: "SiBootstrap" },
     ],
   },
   {

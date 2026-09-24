@@ -57,6 +57,16 @@ export default function Experience() {
 
         {/* Professional timeline layout */}
         <div className="relative mt-16 space-y-8">
+          {/* Continuous timeline line */}
+          <motion.div
+            className="absolute left-[-4px] top-10 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/0 via-cyan-400/60 to-cyan-500/0"
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
+            style={{ transformOrigin: "top" }}
+          />
+
           {experiences.map((exp, idx) => {
             return (
               <motion.div
@@ -67,10 +77,6 @@ export default function Experience() {
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 className="relative pl-8 group"
               >
-                {/* Left connector line */}
-                {idx > 0 && (
-                  <div className="absolute -left-4 top-0 w-0.5 h-full bg-gradient-to-b from-cyan-500/0 via-cyan-400/60 to-cyan-500/0" />
-                )}
 
                 {/* Connector circle at top */}
                 <motion.div

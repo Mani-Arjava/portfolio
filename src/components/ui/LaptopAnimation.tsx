@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function LaptopAnimation() {
   return (
-    <motion.div className="relative w-full h-full flex items-center justify-center py-12">
+    <motion.div className="relative w-full h-full flex items-center justify-center py-6">
       {/* Laptop container */}
       <motion.div
         className="relative w-full max-w-2xl h-96"
@@ -53,7 +53,7 @@ export default function LaptopAnimation() {
 
         {/* Reflection */}
         <motion.div
-          className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-full max-w-2xl h-12 bg-gradient-to-b from-cyan-500/20 to-transparent blur-xl rounded-full"
+          className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-11/12 max-w-2xl h-12 bg-gradient-to-b from-cyan-500/20 to-transparent blur-xl rounded-full"
           animate={{ opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 3, repeat: Infinity }}
         />

@@ -20,8 +20,8 @@ function generateParticles(count: number): Particle[] {
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    duration: Math.random() * 8 + 8,
+    size: Math.random() * 2 + 0.5,
+    duration: Math.random() * 12 + 12,
     delay: Math.random() * 2,
     type: particleTypes[Math.floor(Math.random() * particleTypes.length)] as Particle["type"],
   }));
@@ -68,7 +68,7 @@ function ParticleSymbol({ type, size }: { type: Particle["type"]; size: number }
 }
 
 export default function FloatingParticles() {
-  const particles = useMemo(() => generateParticles(60), []);
+  const particles = useMemo(() => generateParticles(25), []);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 hidden lg:block overflow-hidden">
@@ -81,9 +81,9 @@ export default function FloatingParticles() {
             top: `${particle.y}%`,
           }}
           animate={{
-            y: [0, Math.random() > 0.5 ? 30 : -30],
-            x: [0, Math.random() > 0.5 ? 20 : -20],
-            opacity: [0.3, 0.8, 0.3],
+            y: [0, Math.random() > 0.5 ? 15 : -15],
+            x: [0, Math.random() > 0.5 ? 10 : -10],
+            opacity: [0.1, 0.4, 0.1],
           }}
           transition={{
             duration: particle.duration,

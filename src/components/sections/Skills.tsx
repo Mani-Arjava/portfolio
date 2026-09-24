@@ -12,7 +12,12 @@ import StaggerContainer, {
 const circuitPatternSVG = (opacity: string) => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg stroke='%2322d3ee' stroke-width='1' fill='none' opacity='${opacity}'%3E%3Cline x1='10' y1='10' x2='70' y2='10'/%3E%3Cline x1='70' y1='10' x2='70' y2='70'/%3E%3Cline x1='70' y1='70' x2='10' y2='70'/%3E%3Cline x1='10' y1='70' x2='10' y2='10'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='70' cy='10' r='2'/%3E%3Ccircle cx='70' cy='70' r='2'/%3E%3Ccircle cx='10' cy='70' r='2'/%3E%3C/g%3E%3C/svg%3E`;
 
 export default function Skills() {
-  const proficiencyLabels = ["Expert", "Proficient", "Familiar"];
+  const proficiencyConfig = [
+    { label: "Expert", className: "border-green-400/30 text-green-300 bg-green-400/5" },
+    { label: "Proficient", className: "border-blue-400/30 text-blue-300 bg-blue-400/5" },
+    { label: "Familiar", className: "border-gray-400/30 text-gray-300 bg-gray-400/5" },
+    { label: "Familiar", className: "border-gray-400/30 text-gray-300 bg-gray-400/5" },
+  ];
 
   return (
     <section id="skills" className="py-24 px-6 relative">
@@ -43,9 +48,9 @@ export default function Skills() {
 
           <StaggerContainer className="space-y-10 relative z-10" staggerDelay={0.15}>
             {skillCategories.map((category, catIdx) => {
-              const colors = ["from-cyan-500/20", "from-blue-500/20", "from-purple-500/20", "from-green-500/20"];
-              const borderColors = ["cyan-500/40", "blue-500/40", "purple-500/40", "green-500/40"];
-              const proficiency = proficiencyLabels[catIdx];
+              const colors = ["from-cyan-500/20", "from-blue-500/20", "from-cyan-500/20", "from-blue-500/20"];
+              const borderColors = ["cyan-500/40", "blue-500/40", "cyan-500/40", "blue-500/40"];
+              const proficiency = proficiencyConfig[catIdx];
 
               return (
                 <motion.div
@@ -61,7 +66,7 @@ export default function Skills() {
                 >
                   {/* Left connector circle on desktop */}
                   <motion.div
-                    className="hidden lg:block absolute -left-3 top-6 w-6 h-6 rounded-full border-2 border-cyan-400 bg-slate-900 group-hover:shadow-[0_0_12px_rgba(34,211,238,0.6)]"
+                    className="hidden lg:block absolute -left-[14px] top-6 w-6 h-6 rounded-full border-2 border-cyan-400 bg-slate-900 group-hover:shadow-[0_0_12px_rgba(34,211,238,0.6)]"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
@@ -72,8 +77,8 @@ export default function Skills() {
                     <h3 className="text-lg font-semibold text-white">
                       {category.name}
                     </h3>
-                    <span className="text-xs px-2 py-1 rounded-full border border-cyan-400/30 text-cyan-300 bg-cyan-400/5 font-medium">
-                      {proficiency}
+                    <span className={`text-xs px-2 py-1 rounded-full border font-medium ${proficiency.className}`}>
+                      {proficiency.label}
                     </span>
                   </div>
                   <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 relative z-10">

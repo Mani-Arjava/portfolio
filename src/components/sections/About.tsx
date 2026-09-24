@@ -42,7 +42,7 @@ export default function About() {
       <div className="mx-auto max-w-6xl">
         <SectionHeading title={aboutData.title} subtitle={aboutData.subtitle} />
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 lg:items-center">
           <ScrollReveal direction="left">
             <LaptopAnimation />
           </ScrollReveal>
@@ -54,7 +54,7 @@ export default function About() {
                 <div key={i}>
                   <TypewriterText
                     text={p}
-                    delay={i * 800}
+                    delay={i * 400}
                     speed={20}
                     className="leading-relaxed text-gray-400"
                   />
